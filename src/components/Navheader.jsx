@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import ColorSchemesExample from "./ColorSchemesExample";
 export default function Navheader() {
   return (
     <div>
@@ -8,6 +9,7 @@ export default function Navheader() {
       <Link to="/boardlist">게시판</Link>
       <span>|</span>
       <Link to="/loginform">로그인</Link>
+      <ColorSchemesExample/>
     </div>
   );
 }
