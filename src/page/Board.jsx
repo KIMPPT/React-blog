@@ -21,17 +21,20 @@ export default function Board({ boardlist }) {
   //마운트 할 때 실행하기 위해 빈 배열로 작성
   useEffect(() => {
     if (board === undefined) {
+      alert("존재하지 않는 사이트 입니다")
       navigate("/");
     }
-  }, []);
+    console.log("작업중")
+  },[]);
   return (
     <div>
+      {/*board 값이 존재하면 화면에 해당 값들을 출력하기 */}
       {board && (
         <div>
           <h1>{board.title}</h1>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <span>{board.id}</span>
-            <span>{board.name}</span>
+            <span>작성자 : {board.name}</span>
             <span>{board.date}</span>
           </div>
           <p>{board.content}</p>
