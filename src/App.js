@@ -25,6 +25,8 @@ function App() {
   //확실하게 처음에는 속성에 접근하지 않을 때 사용
   //[]-배열값을 사용할 때 초기값을 null 이나 ""으로 두면
   //map() 메서드를 쓸 수 없으므로 주의
+
+  //{name:"green"}
   let [user,setUser]=useState(
 null
   );
@@ -41,7 +43,7 @@ null
           <Route path="/board" element={<Board />} />
           <Route path="/boardlist" element={<Boardlist />} />
           <Route path="/boardform" element={<Boardform />} />
-          <Route path="/loginform" element={<Loginform />} />
+          <Route path="/loginform" element={<Loginform setUser={setUser}/>} />
         </Routes>
       </BrowserRouter>
     </div>
