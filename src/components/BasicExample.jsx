@@ -1,23 +1,16 @@
 import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
 
 function BasicExample() {
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>아이디</Form.Label>
-        <Form.Control type="text" placeholder="아이디를 입력해주세요" />
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>비밀번호</Form.Label>
-        <Form.Control type="password" placeholder="비밀번호를 입력해주세요" />
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox"></Form.Group>
-      <Button variant="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+    <Card style={{ width: "18rem" }}>
+      <Card.Body>
+        <Card.Title>제목</Card.Title>
+        <Card.Text>
+          날짜
+        </Card.Text>
+      </Card.Body>
+    </Card>
   );
 }
 

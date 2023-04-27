@@ -19,23 +19,30 @@ padding은 m 대신에 p 사용
 */
 //props 값을 받아 올 때 NavHeader(props)으로 받아 올 수 있다
 //필요에 따라서 구조분해를 통해서 객체의 값을 바로 받아 올 수도 있다
-export default function Navheader({user}) {
+export default function Navheader({ user }) {
   return (
     <div>
-        <Navbar bg="primary" variant="dark">
-            <Container>
-                <Link className="navbar-brand">블로그</Link>
-                <Nav className='me-auto'>
-                    <Link className="nav-link" to="/">홈</Link>
-                    <Link className="nav-link" to="/boardlist">게시판</Link>
-                    {/* user의 값이 있을 때 user.name을 출력 */}
-                    {
-                      user? <p>{user.name}</p>:
-                      <Link className="nav-link" to="/loginform">로그인</Link>
-                    }
-                </Nav>
-            </Container>
-        </Navbar>
+      <Navbar bg="primary" variant="dark">
+        <Container>
+          <Link className="navbar-brand">블로그</Link>
+          <Nav className="me-auto">
+            <Link className="nav-link" to="/">
+              홈
+            </Link>
+            <Link className="nav-link" to="/boardlist">
+              게시판
+            </Link>
+            {/* user의 값이 있을 때 user.name을 출력 */}
+            {user ? (
+              <Navbar.Text>{user.name}</Navbar.Text>
+            ) : (
+              <Link className="nav-link" to="/loginform">
+                로그인
+              </Link>
+            )}
+          </Nav>
+        </Container>
+      </Navbar>
     </div>
   );
 }
