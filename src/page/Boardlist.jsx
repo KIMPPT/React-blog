@@ -11,7 +11,7 @@ export default function Boardlist({ boardlist }) {
         boardlist.map((board, id) => (
           //props 값으로 전달 할 때, 전달되는 값이 배열인지 객체인지 정하기
           //보통은 객체값을 전달하여 배열에 있는 내용을 출력
-          <BoardCard board={board} />
+          <BoardCard board={board} key={id}/>
         ))
       }
     </div>

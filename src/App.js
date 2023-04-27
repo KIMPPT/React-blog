@@ -27,41 +27,46 @@ function App() {
   //map() 메서드를 쓸 수 없으므로 주의
 
   //{name:"green"}
-  let [user,setUser]=useState(
-null
-  );
-  let [boardlist,setBoardlist]=useState(
-    [
-      {
-        id:1,
-        title:"첫번째 게시물",
-        content:"게시물의 내용을 작성합니다",
-        name:"green",
-        date:"2023-04-27"
-      },
-      
-      {
-        id:2,
-        title:"두번째 게시물",
-        content:"두번째 게시물의 내용을 작성합니다",
-        name:"blue",
-        date:"2023-04-27"
-      }
-    ]
-  );
+  let [user, setUser] = useState(null);
+  let [boardlist, setBoardlist] = useState([
+    {
+      id: 1,
+      title: "첫번째 게시물",
+      content: "게시물의 내용을 작성합니다",
+      name: "green",
+      date: "2023-04-27",
+    },
+
+    {
+      id: 2,
+      title: "두번째 게시물",
+      content: "두번째 게시물의 내용을 작성합니다",
+      name: "blue",
+      date: "2023-04-27",
+    },
+  ]);
   //주소와 페이지(컴포넌트 연결)
   return (
     <div className="App">
       <BrowserRouter>
         {/*navheader의 Link를 사용하기 위해서는 browserRouter안에 있어야 한다 */}
         {/*상위 데이터 값 사용을 위해 props으로 전달 */}
-        <Navheader user={user}/>
+        <Navheader user={user} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/board" element={<Board />} />
-          <Route path="/boardlist" element={<Boardlist boardlist={boardlist}/>} />
+          <Route
+            path="/boardlist"
+            element={<Boardlist boardlist={boardlist} />}
+          />
+          <Route
+            path="/boardlist/:id"
+            element={<Board boardlist={boardlist} />}
+            errorElement={<Home />}
+          />
+
           <Route path="/boardform" element={<Boardform />} />
-          <Route path="/loginform" element={<Loginform setUser={setUser}/>} />
+          <Route path="/loginform" element={<Loginform setUser={setUser} />} />
         </Routes>
       </BrowserRouter>
     </div>
