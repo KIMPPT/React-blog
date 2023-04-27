@@ -11,13 +11,31 @@ import Navheader from "./components/Navheader";
 //Bootstarp을 사용하기 위해서는 CSS 추가 필요
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
+import { useState } from "react";
 function App() {
+  //데이터를 하위 컴포넌트에 전달하기 위해서
+  //상위 컴포넌트에서 데이터를 작성하고 props값을 전달한다
+  //상위 데이터값을 하위에서 공유하기 때문에 동일한 값이 출력
+
+  //유저 데이터
+  //처음 값은 null 또는 "" {더미데이터}로 내용 확인 후 선택
+  //처음 값을 null로 두었을 때 주의점
+  //null 과 undefined는 속성을 가질 수 없기 때문에
+  //속성에 접근하면 오류가 나온다.
+  //확실하게 처음에는 속성에 접근하지 않을 때 사용
+  //[]-배열값을 사용할 때 초기값을 null 이나 ""으로 두면
+  //map() 메서드를 쓸 수 없으므로 주의
+  let [user,setUser]=useState(
+null
+  );
+
   //주소와 페이지(컴포넌트 연결)
   return (
     <div className="App">
       <BrowserRouter>
-      {/*navheader의 Link를 사용하기 위해서는 browserRouter안에 있어야 한다 */}
-      <Navheader />
+        {/*navheader의 Link를 사용하기 위해서는 browserRouter안에 있어야 한다 */}
+        {/*상위 데이터 값 사용을 위해 props으로 전달 */}
+        <Navheader user={user}/>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/board" element={<Board />} />
