@@ -5,8 +5,14 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 //게시물을 작성하고
 //작성완료 버튼을 누르면 추가
-export default function Boardform({ setBoardlist, boardlist, id, user,addId }) {
-  let navigate=useNavigate();
+export default function Boardform({
+  setBoardlist,
+  boardlist,
+  id,
+  user,
+  addId,
+}) {
+  let navigate = useNavigate();
   let [title, setTitle] = useState("");
   let [content, setContent] = useState("");
 
@@ -17,11 +23,11 @@ export default function Boardform({ setBoardlist, boardlist, id, user,addId }) {
     e.preventDefault();
     //1. 새로운 값 작성 - 게시물(동일한 속성)
     let newBoard = {
-      id: id,
-      title: title,
-      content: content,
-      name: user ? user.name : "익명",
-      date: "2023-04-28",
+      id: id, //App.js에서 id값을 3으로 정했기 때문에 3부터 시작함
+      title: title, //useState로 만든 title 값
+      content: content, //useState로 만든 title 값
+      name: user ? user.name : "익명", //임의
+      date: "2023-04-28", //임의
     };
     //props으로 가져온 값(변수)는 원본값을 바꿀 수 없다
     //원본값을 바꿔주려면 부모에서 값을 바꾸는 메서드(함수)를 들고와서 실행해야한다
@@ -31,9 +37,9 @@ export default function Boardform({ setBoardlist, boardlist, id, user,addId }) {
     //원본 배열 필요
     let newBoardlist = boardlist.concat(newBoard);
     //3. 새로운 배열을 set메서드를 이용하여 값 수정
-    setBoardlist(newBoardlist)
+    setBoardlist(newBoardlist);
     //내용 추가가 끝났다면 게시판으로 이동
-    navigate("/boardlist")
+    navigate("/boardlist");
   };
   return (
     <div>
@@ -56,9 +62,13 @@ export default function Boardform({ setBoardlist, boardlist, id, user,addId }) {
             }}
           />
         </Form.Group>
-        <Button type="submit" variant="primary">
-        작성완료
-      </Button>
+        <Button
+          type="submit"
+          variant="primary"
+          // 버튼 태그를 Form 안에 넣지 않아서 아무리 클릭해도 submit가 동작하지 않았음
+        >
+          작성완료
+        </Button>
       </Form>
     </div>
   );

@@ -10,7 +10,7 @@ props에 board로 들고 왔다
 */
 export default function BoardCard({ board }) {
   return (
-    <Card style={{ width: "18rem", margin: "auto" }}>
+    <Card style={{ width: "18rem", margin: "auto", marginTop:"20px"}}>
       <Card.Body>
         <Card.Title>
           <Link style={{ fontSize: "1.2rem" }} to={`/boardlist/${board.id}`}>
