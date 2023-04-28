@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 export default function Board({ boardlist }) {
   let navigate = useNavigate();
 

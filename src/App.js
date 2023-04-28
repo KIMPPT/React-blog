@@ -12,6 +12,12 @@ import Navheader from "./components/Navheader";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
+
+//이 값이 바뀌었을 때 화면에 출력할 필요가 없으므로
+//컴포넌트 밖에 작성을 하여 값이 바뀔 수 있도록 한다
+//*컴포넌트 안에서 작성하면 업데이트 할 때 마다 값이 고정됨
+//*값이 바뀔 때 마다 화면을 바꾸고 싶으면 useState() 사용
+let id = 3;
 function App() {
   //데이터를 하위 컴포넌트에 전달하기 위해서
   //상위 컴포넌트에서 데이터를 작성하고 props값을 전달한다
@@ -45,6 +51,11 @@ function App() {
       date: "2023-04-27",
     },
   ]);
+
+  //id값을 1씩 증가하는 함수
+  let addId=()=>{
+    id+=1;
+  }
   //주소와 페이지(컴포넌트 연결)
   return (
     <div className="App">
@@ -65,7 +76,18 @@ function App() {
             errorElement={<Home />}
           />
 
-          <Route path="/boardform" element={<Boardform />} />
+          <Route
+            path="/boardform"
+            element={
+              <Boardform
+                setBoardlist={setBoardlist}
+                boardlist={boardlist}
+                id={id}
+                addId={addId}
+                user={user}
+              />
+            }
+          />
           <Route path="/loginform" element={<Loginform setUser={setUser} />} />
         </Routes>
       </BrowserRouter>
