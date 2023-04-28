@@ -1,5 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
+
+//React-slick을 사용하기 위해 css 추가
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 //Router를 사용할 때는 BrowserRouter를 들고와서 사용
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./page/Home";
