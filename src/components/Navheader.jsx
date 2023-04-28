@@ -19,12 +19,17 @@ padding은 m 대신에 p 사용
 */
 //props 값을 받아 올 때 NavHeader(props)으로 받아 올 수 있다
 //필요에 따라서 구조분해를 통해서 객체의 값을 바로 받아 올 수도 있다
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faGoogle} from '@fortawesome/free-brands-svg-icons'
 export default function Navheader({ user }) {
   return (
     <div>
       <Navbar bg="primary" variant="dark">
         <Container>
-          <Link className="navbar-brand">블로그</Link>
+          <Link className="navbar-brand">
+            <FontAwesomeIcon icon={faGoogle}
+            style={{color:"yellow",width:"30px",height:"30px"}}/>
+            블로그</Link>
           <Nav className="me-auto">
             <Link className="nav-link" to="/">
               홈
