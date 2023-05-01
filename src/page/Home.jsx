@@ -1,8 +1,10 @@
 import React,{ useEffect,useState } from "react";
 import SimpleSlider from "../components/SimpleSlider";
 import axios from 'axios'
+import KakaoMapComp from "../components/KakaoMapComp";
 //날씨 API를 사용하기 위해서 AXIOS를 이용하여 작성
 //Fetch대신 axios 사용
+//require로 불러오지 않아져서 일단 import 로 불러옴
 //let axios = require("axios");
 
 export default function Home() {
@@ -38,6 +40,7 @@ export default function Home() {
       <h3>{weather},{weatherIcon}</h3>
       Home
       <SimpleSlider />
+      <KakaoMapComp/>
     </div>
   );
 }
