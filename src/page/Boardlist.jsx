@@ -1,15 +1,19 @@
 import React from "react";
 import BasicExample from "../components/BasicExample";
 import BoardCard from "../components/BoardCard";
-import  Button  from "react-bootstrap/button";
+import Button from "react-bootstrap/button";
 import { useNavigate } from "react-router-dom";
 export default function Boardlist({ boardlist }) {
-  let navigate=useNavigate();
+  let navigate = useNavigate();
   return (
-    <div >
-                    <Button
-      onClick={()=>{navigate("/boardform")}}
-      >게시글 작성</Button>
+    <div>
+      <Button
+        onClick={() => {
+          navigate("/boardform");
+        }}
+      >
+        게시글 작성
+      </Button>
       {
         //배열을 이용하여 화면에 출력 할 수 있다
         //map() : return 값을 배열로 전달
@@ -17,7 +21,7 @@ export default function Boardlist({ boardlist }) {
         boardlist.map((board, id) => (
           //props 값으로 전달 할 때, 전달되는 값이 배열인지 객체인지 정하기
           //보통은 객체값을 전달하여 배열에 있는 내용을 출력
-          <BoardCard board={board} key={id}/>
+          <BoardCard board={board} key={id} />
         ))
       }
     </div>

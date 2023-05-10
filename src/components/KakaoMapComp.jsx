@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
 export default function KakaoMapComp() {
+  //id값으로 JS로 찾는 것보다 useRef로 들고오는 것이 더 안전
   let kakao = window.kakao;
 
   //카카오JS에 있어지는 일을 실행되자마자 출력되야하기 때문에
